@@ -2,17 +2,22 @@
   "name": "personalportfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://j-chan-hkust.github.io/react-resume-template",
   "dependencies": {
+    "gh-pages": "^2.2.0",
     "jquery": "^3.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-ga": "^2.3.5",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   }
 }

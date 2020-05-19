@@ -1,6 +1,7 @@
 {
   "short_name": "React App",
   "name": "Create React App Sample",
+  "homepage": "https://j-chan-hkust.github.io/react-resume-template",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,6 +9,8 @@
       "type": "image/x-icon"
     }
   ],
+
+
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

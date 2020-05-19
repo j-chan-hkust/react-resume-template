@@ -12,6 +12,14 @@ import Portfolio from './Components/Portfolio';
 
 class App extends Component {
 
+  isEmpty = (obj) => {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  };
+
   constructor(props){
     super(props);
     this.state = {
@@ -24,9 +32,9 @@ class App extends Component {
 
   }
 
-  getResumeData(){
+  fetchResumeData(){
     $.ajax({
-      url:'/resumeData.json',
+      url:'./resumeData.json',
       dataType:'json',
       cache: false,
       success: function(data){
@@ -40,11 +48,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.getResumeData();
+    this.fetchResumeData();
   }
 
   render() {
-    return (
+    if (this.isEmpty(this.state.resumeData)){
+      return (<div className="App"></div>)} //return an empty div if we haven't loaded any resume data yet
+    else return (
       <div className="App">
         <Header data={this.state.resumeData.main}/>
         <About data={this.state.resumeData.main}/>
